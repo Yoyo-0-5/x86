@@ -1,0 +1,13 @@
+.MODEL SMALL
+.STACK
+.DATA
+
+.CODE
+main:   
+	mov ax, @data
+	mov ds, ax
+
+	mov ah, 4ch
+	int 21h
+END main
+

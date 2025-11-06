@@ -1,0 +1,17 @@
+.MODEL	SMALL
+.STACK
+.DATA
+	S_8	DB  11H
+	D_8	DB  22H
+.CODE
+START:
+	MOV     AX, @DATA
+	MOV     DS, AX
+
+	MOV     CL, S_8
+	XCHG    D_8, CL
+	MOV     S_8, CL
+
+	MOV     AH, 4CH
+	INT     21H
+END START
