@@ -51,13 +51,15 @@ LESS10:
 
 	; output NUM in octal format
 	mov dl, NUM
-	shr dl, 6
+	mov cl, 6
+	shr dl, cl
 	add dl, '0'
 	mov ah, 02h
 	int 21h
 	mov dl, NUM
 	and dl, 00111000b
-	shr dl, 3
+	mov cl, 3
+	shr dl, cl
 	add dl, '0'
 	mov ah, 02h
 	int 21h
@@ -80,7 +82,8 @@ LESS10:
 	; output NUM in hexadecimal format
 	mov dl, NUM
 	and dl, 11110000b
-	shr dl, 4
+	mov cl, 4
+	shr dl, cl
 	cmp dl, 10
 	jb HEX_LESS_A
 	add dl, 7
