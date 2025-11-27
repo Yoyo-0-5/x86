@@ -1,11 +1,14 @@
 .MODEL SMALL
 .STACK
 .DATA
+	; 宣告
 
 .CODE
 main:   
 	mov ax, @data
 	mov ds, ax
+
+	; 程式
 
 	mov ah, 4ch
 	int 21h
