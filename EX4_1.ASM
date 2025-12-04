@@ -5,7 +5,7 @@
 	N2 db 35
 	ans db ?
 .CODE
-main:   
+main: 
 	mov ax, @data
 	mov ds, ax
 
