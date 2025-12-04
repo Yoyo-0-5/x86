@@ -12,7 +12,6 @@ main:
 outer_loop:
     push cx
     lea si, SEA
-    mov cx, 2
 inner_loop:
     mov dl, [si]
     mov bl, [si+1]
