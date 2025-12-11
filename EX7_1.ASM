@@ -8,12 +8,10 @@ main:
 	mov ax, @data
 	mov ds, ax
 
-	mov cx, 3
-    dec cx
+	mov cx, 2
 outer_loop:
     push cx
     lea si, SEA
-    mov cx, 2
 inner_loop:
     mov dl, [si]
     mov bl, [si+1]
