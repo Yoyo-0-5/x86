@@ -1,3 +1,5 @@
+INCLUDE DOS.H
+
 .MODEL SMALL
 .STACK
 .DATA
@@ -14,31 +16,21 @@ main:
 	mov ds, ax
 
     ; input
-	lea dx, MSG1
-    mov ah, 09h
-    int 21h
+	PRINT MSG1
     
-    mov ah, 01h
-    int 21h
+	GETCHAR al
     sub al, '0'
     mov N1, al
 
-    lea dx, CRLF
-    mov ah, 09h
-    int 21h
+    PRINT CRLF
 
-	lea dx, MSG2
-    mov ah, 09h
-    int 21h
+	PRINT MSG2
 
-    mov ah, 01h
-    int 21h
+	GETCHAR al
     sub al, '0'
     mov N2, al
 
-    lea dx, CRLF
-    mov ah, 09h
-    int 21h
+    PRINT CRLF
 
     ; operation: ANS = N1 - N2
     mov dl, N1
@@ -48,37 +40,27 @@ main:
     ; output
     mov dl, N1
 	add dl, '0'
-	mov ah, 02h
-	int 21h
+	PUTCHAR dl
 
-    mov dl, '-'
-    mov ah, 02h
-    int 21h
+    PUTCHAR '-'
 
     mov dl, N2
     add dl, '0'
-    mov ah, 02h
-    int 21h
+    PUTCHAR dl
 
-    mov dl, '='
-    mov ah, 02h
-    int 21h
+    PUTCHAR '='
 
     cmp ANS, 0
     jge POSITIVE
     ; if ANS < 0
-    mov dl, '-'
-    mov ah, 02h
-    int 21h
+    PUTCHAR '-'
     neg ANS
 
 POSITIVE:
     mov dl, ANS
     add dl, '0'
-    mov ah, 02h
-    int 21h
+    PUTCHAR dl
 
-	mov ah, 4ch
-	int 21h
+	END_PROCESS
 END main
 

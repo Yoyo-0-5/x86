@@ -1,3 +1,5 @@
+INCLUDE DOS.H
+
 .MODEL SMALL
 .STACK
 .DATA
@@ -9,8 +11,7 @@ main:
 	mov ds, ax
 
 continue:
-	mov ah, 01h
-    int 21h
+	GETCHAR al
 
     cmp al, '!'
     je exit_program
@@ -22,14 +23,11 @@ continue:
     sub al, 20h
 
 skip_convert:
-    mov dl, al
-    mov ah, 02h
-    int 21h
+    PUTCHAR al
     jmp continue
 
 exit_program:
 
-	mov ah, 4ch
-	int 21h
+	END_PROCESS
 END main
 
