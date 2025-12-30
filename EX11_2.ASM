@@ -20,7 +20,7 @@ main:
     PRINT CRLF
     
     PRINT MSG2
-    INPUT
+    INPUT SEQ2
     PRINT CRLF
 
 	; 複製到 NEWSEQ
