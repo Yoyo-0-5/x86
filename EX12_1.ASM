@@ -19,7 +19,8 @@ main:
     mov bx, 0
     mov bl, [STRING+1]
     lea si, STRING+2
-    mov byte ptr [si+bx], '$'
+    mov al, '$'
+    mov [si+bx], al
     
     PRINT STRING+2
 
